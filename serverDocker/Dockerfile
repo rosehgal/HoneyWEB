@@ -1,11 +1,13 @@
-FROM debian:latest
+#FROM debian:latest
+
+FROM r0hi7/nodejs
 
 MAINTAINER Rohit Sehgal (rsehgal@iitk.ac.in)
 
-RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates
-RUN mkdir /nodejs && curl http://nodejs.org/dist/v0.10.30/node-v0.10.30-linux-x64.tar.gz | tar xvzf - -C /nodejs --strip-components=1
+#RUN apt-get update -y && apt-get install --no-install-recommends -y -q curl python build-essential git ca-certificates
+#RUN mkdir /nodejs && curl http://nodejs.org/dist/v0.10.30/node-v0.10.30-linux-x64.tar.gz | tar xvzf - -C /nodejs --strip-components=1
 
-ENV PATH $PATH:/nodejs/bin
+#ENV PATH $PATH:/nodejs/bin
 
 
 #RUN apt-get install build-essential httrack -y
