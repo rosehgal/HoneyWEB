@@ -1,0 +1,11 @@
+{
+  "name":"static-server",
+  "main":"proxy.js",
+  "scripts":{
+    "start":"node proxy.js"
+  },
+  "dependencies":{
+    "http-proxy":"^1.16.2"
+  }
+}
+

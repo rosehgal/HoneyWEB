@@ -26,7 +26,7 @@ ADD cse.iitk.ac.in/cse.iitk.ac.in /app/cse.iitk.ac.in
 ADD server.js /app/server.js
 EXPOSE 80
 
-#ENTRYPOINT ["npm","start"]
+ENTRYPOINT ["npm","start"]
 #ENTRYPOINT ["echo"]
 #CMD [$URL]
 #,"-O","/home/httrack/","-r5"]
