@@ -1,0 +1,16 @@
+version: '2'
+
+services:
+  proxy:
+    build: ./proxyDocker/
+    ports:
+      - 80:80
+    depends_on:
+      - server
+
+  server:
+    build: ./serverDocker/
+    ports:
+      - 8080:80
+
+
