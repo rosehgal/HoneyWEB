@@ -20,12 +20,12 @@ MAINTAINER Rohit Sehgal (rsehgal@iitk.ac.in)
 #RUN npm install -g static-server
 #COPY superbisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-RUN mkdir -p /app/cse.iitk.ac.in
-WORKDIR /app
-ADD package.json /app/
+RUN mkdir -p /app/server/cse.iitk.ac.in
+WORKDIR /app/server
+ADD package.json /app/server
 RUN npm install
-ADD cse.iitk.ac.in/cse.iitk.ac.in /app/cse.iitk.ac.in
-ADD server.js /app/server.js
+ADD cse.iitk.ac.in/cse.iitk.ac.in /app/server/cse.iitk.ac.in
+ADD server.js /app/server/server.js
 EXPOSE 80
 
 ENTRYPOINT ["npm","start"]
