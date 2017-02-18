@@ -10,7 +10,7 @@ app.set('port',80);
 
 var server = app.listen(app.get('port'),function(){
   var port = server.address().port;
-  console.log('Listening on Port'+port);
+  console.log('Server Listening on Port'+port);
 });
 
 

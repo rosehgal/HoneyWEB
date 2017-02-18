@@ -5,7 +5,9 @@
     "start":"node proxy.js"
   },
   "dependencies":{
-    "http-proxy":"^1.16.2"
+    "http-proxy":"^1.16.2",
+    "body-parser":"^1.16.1",
+    "connect":"^3.5.1"
   }
 }
 
