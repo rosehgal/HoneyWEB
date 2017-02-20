@@ -24,7 +24,7 @@ RUN mkdir -p /app/server/cse.iitk.ac.in
 WORKDIR /app/server
 ADD package.json /app/server
 RUN npm install
-ADD cse.iitk.ac.in/cse.iitk.ac.in /app/server/cse.iitk.ac.in
+#ADD cse.iitk.ac.in/cse.iitk.ac.in /app/server/cse.iitk.ac.in
 ADD server.js /app/server/server.js
 EXPOSE 80
 
