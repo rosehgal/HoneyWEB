@@ -1,24 +1,25 @@
 var httpProxy = require("http-proxy");
-var http = require("http");
-var connect = require("connect");
-var bodyParser = require("body-parser");
 
-var proxy = httpProxy.createProxyServer({});
+var proxy = httpProxy.createServer({target:'http://localhost:8080'});
 
-#console.log("Proxy listening on port 80");
+proxy.listen(80);
 
-proxy.on('proxyReq',function(proxyReq,req,res,options){
-  //console.log("got a connection"+ typeof(req));
-  if(req.body){
-    var newBody = JSON.stringify(req.body);
-    console.log("Request from the client",newBody);
-    proxyReq.write(newBody);
-  }
+proxy.on('proxyRes', function (proxyRes, req, res) {
+    console.log('RAW Response from the target', JSON.stringify(proxyRes.headers, true, 2));
 });
 
-var app = connect().use(bodyParser.json()).use(bodyParser.urlencoded()).use(function(req,res){
-  console.log('Proxy body',req.body);
-  proxy.web(req,res,{target:"http://server:80"});
+proxy.on('proxyReq',function(proxyReq,req,res){
+  console.log('Request is coming via ip',req);
+  console.log('RAW request from client',JSON.stringify(req.headers,true,2));
 });
 
-http.createServer(app).listen(80);
+proxy.on('open', function (proxySocket) {
+  // listen for messages coming FROM the target here
+  proxySocket.on('data', hybiParseAndLogMessage);
+});
+
+proxy.on('close', function (res, socket, head) {
+ // view disconnected websocket connections
+  console.log('Client disconnected');
+});
+
