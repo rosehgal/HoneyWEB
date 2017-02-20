@@ -19,9 +19,9 @@ proxy.on('proxyReq',function(proxyReq,req,res){
   if(!fs.existsSync(dir))
     fs.mkdirSync(dir);
   var fileToWrite = dir +"/"+date.format(now,'YYYY-MM-DD');
-  console.log("Writing to a file"+fileToWrite);
-
-  fs.appendFile(fileToWrite,JSON.stringify(req.headers,true,2),function(err){if(!err)console.log("data written to file")});
+  //console.log("Writing to a file"+fileToWrite);
+  fs.appendFile(fileToWrite,"URL Access for"+req.url+"\n",function(err){if(err)console.log("Unable to write data to the file")});
+  fs.appendFile(fileToWrite,JSON.stringify(req.headers,true,2)+"\n",function(err){if(err)console.log("Unable to write datat to file")});
   //console.log('Request is coming via ip',req.socket.remoteAddress);
   //console.log('RAW request from client',JSON.stringify(req.headers,true,2));
 });

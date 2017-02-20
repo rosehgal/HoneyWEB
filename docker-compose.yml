@@ -15,4 +15,4 @@ services:
   server:
     build: ./serverDocker/
     volumes:
-      - ./serverDocker/cse.iitk.ac.in/:/app/server/cse.iitk.ac.in
+      - ./serverDocker/clonned_website/:/app/server/clonned_website

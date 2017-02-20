@@ -14,7 +14,7 @@ var server = app.listen(app.get('port'),function(){
 });
 
 
-app.use(express.static(path.join(__dirname,'cse.iitk.ac.in')));
+app.use(express.static(path.join(__dirname,'clonned_website')));
 /*
 mitm.on("request",function(req,res){
   console.log("Intercepting Connection...");
