@@ -9,7 +9,10 @@ services:
       - server
     external_links:
       - server
+    volumes:
+      - ./logs/:/app/proxy/logs/
 
   server:
     build: ./serverDocker/
-
+    volumes:
+      - ./serverDocker/cse.iitk.ac.in/:/app/server/cse.iitk.ac.in
