@@ -6,7 +6,7 @@ $pass = isset($_POST['pass']) ? $_POST['pass'] : '' ;
 echo '<?xml version="1.0" encoding="UTF-8"?>'
 ?>
 <?php
-$link = new PDO('mysql:dbname=faculty;host=localhost', 'faculty', 'ifaculty');
+$link = new PDO('mysql:dbname=dsqli;host=localhost', 'dsqli', 'icadsqli');
 
 $sql = "SELECT * FROM users WHERE
 	username = '{$name}' AND password = '{$pass}' ";
