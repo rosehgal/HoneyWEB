@@ -44,8 +44,4 @@ then
     sudo apt-get install mysql-client -y
 fi
 
-sleep 60
-ip=$(echo "$ip" | xargs)
-
-mysql -u root -proot -h $ip -P 3306 -e 'use mysql;source SQLi/sqli.sql;'
-
+mysql -u root -proot -h $ip -P 3306 mysql < ./SQLi/sqli.sql
