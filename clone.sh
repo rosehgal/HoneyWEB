@@ -29,19 +29,3 @@ mkdir ./serverDocker/clonned_website/$1/SQL
 cp ./SQLi/index.html ./serverDocker/clonned_website/$1/SQL/index.html
 cp ./SQLi/login.php ./serverDocker/clonned_website/$1/SQL/login.php
 sed -i 's+<body>+<body><p><a href="./SQL/index.html">LOGIN</a></p>+g' ./serverDocker/clonned_website/$1/index.html
-
-ip=
-while [[ $ip = "" ]]; do
-    read -p "Enter IP address to which you want to bind your mysql server: "  ip
-done
-
-docker run -d --name=SQLi-mysql --env="MYSQL_ROOT_PASSWORD=root" --publish $ip:3306:3306 mysql
-
-dpkg -s mysql-client
-
-if [ $? -ne 0 ]
-then
-    sudo apt-get install mysql-client -y
-fi
-
-mysql -u root -proot -h $ip -P 3306 mysql < ./SQLi/sqli.sql
