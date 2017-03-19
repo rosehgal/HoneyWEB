@@ -25,7 +25,3 @@ fi
 mkdir ./serverDocker/clonned_website
 httrack $1 -O ./serverDocker/clonned_website
 
-mkdir ./serverDocker/clonned_website/$1/SQL
-cp ./SQLi/index.html ./serverDocker/clonned_website/$1/SQL/index.html
-cp ./SQLi/login.php ./serverDocker/clonned_website/$1/SQL/login.php
-sed -i 's+<body>+<body><p><a href="./SQL/index.html">LOGIN</a></p>+g' ./serverDocker/clonned_website/$1/index.html
